@@ -9,6 +9,14 @@
 </head>
 
 <body>
+    <?php 
+        require_once 'conexion.php';
+    
+        $usuarios = "select * from crud_php.usuarios";
+        $datos = mysqli_query($conn,$usuarios);
+        
+        
+    ?>
 
     <div class="container">
         <header class="header">
@@ -23,7 +31,7 @@
 
 
                 <div class="tabla">
-                    <table border="1">
+                    <table border="1" class="table_user">
                         <thead>
                             <tr>
                                 <td>ID:</td>
@@ -31,12 +39,20 @@
                                 <td>Apellidos:</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>hola</td>
-                                <td>hola2</td>
-                                <td>hola3</td>
-                            </tr>
+                        <tbody class="user_body">
+                            <?php
+                                // foreach($datos as $dato):
+                            ?>
+                            <!-- <tr>
+                                <td><?php echo $dato['id_usuario'];?></td>
+                                <td><?php echo $dato['nombre'];?></td>
+                                <td><?php echo $dato['apellidos'];?></td>
+                            </tr> -->
+                                <?php //endforeach;
+                                //mysqli_close($conn);
+                                ?>
+
+
 
                         </tbody>
                     </table>
@@ -50,9 +66,10 @@
         </main>
 
         <footer class="footer">
-            <div class="creditos">
-                Derechos reservados Dracosoftware-zen.com
-            </div>
+            
+            <span>Derechos reservados Dracosoftware-zen.com</span>
+                
+            
 
         </footer>
 

@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    <?php 
-        require_once 'conexion.php';
+    <?php
+    require_once 'php/conexion.php';
+
+    $usuarios = "select * from crud_php.usuarios";
     
-        $usuarios = "select * from crud_php.usuarios";
-        $datos = mysqli_query($conn,$usuarios);
-        
-        
+
+
     ?>
 
     <div class="container">
@@ -26,7 +26,9 @@
         <main class="main">
             <section class="section">
                 <div class="btn-crud">
+                    <div class="msj"></div>
                     <input type="button" value="Consultar crud" id="get_datos" class="get_datos">
+                    <input type="button" value="Añadir usuario" id="open_form_add" class="get_datos">
                 </div>
 
 
@@ -41,16 +43,16 @@
                         </thead>
                         <tbody class="user_body">
                             <?php
-                                // foreach($datos as $dato):
+                            // foreach($datos as $dato):
                             ?>
                             <!-- <tr>
-                                <td><?php echo $dato['id_usuario'];?></td>
-                                <td><?php echo $dato['nombre'];?></td>
-                                <td><?php echo $dato['apellidos'];?></td>
+                                <td><?php echo $dato['id_usuario']; ?></td>
+                                <td><?php echo $dato['nombre']; ?></td>
+                                <td><?php echo $dato['apellidos']; ?></td>
                             </tr> -->
-                                <?php //endforeach;
-                                //mysqli_close($conn);
-                                ?>
+                            <?php //endforeach;
+                            //mysqli_close($conn);
+                            ?>
 
 
 
@@ -60,22 +62,36 @@
 
             </section>
             <aside class="aside">
-                <h2 class="title-aside">La tabla del lado izquierdo</h2>
+                <div class="div_aside">
+                    <h2 class="title-aside">La tabla del lado izquierdo</h2>
+
+                </div>
+                
+                <form id="form_user" >
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre" id="name" class="name">
+
+                    <label for="">Apellidos</label>
+                    <input type="text" name="apellidos" id="last_name" class="last_name">
+                                
+                    <button type="submit" id="save_user" class="save_user">guardar</button>
+                    <button type="button" id="close_form" class="save_user">cerrar</button>
+                </form>
             </aside>
 
         </main>
 
         <footer class="footer">
-            
+
             <span>Derechos reservados Dracosoftware-zen.com</span>
-                
-            
+
+
 
         </footer>
 
     </div>
 
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

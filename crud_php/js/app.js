@@ -6,8 +6,6 @@ const open_form_add = document.querySelector("#open_form_add");
 const msj = document.querySelector(".msj");
 const close_form = document.querySelector("#close_form");
 
-
-
 var form_user = document.querySelector("#form_user");
 
 get_datos.addEventListener("click", () => get_users());

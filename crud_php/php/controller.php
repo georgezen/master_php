@@ -7,24 +7,20 @@ $operacion = $_POST['operador'];
 
 $obj = new crudProcesses();
 
-
 if ($operacion == "") {
-
     echo $obj->get_user();
 } else {
 
     switch ($operacion) {
         case 'registro':
 
-
             $nombre = $_POST['nombre'];
             $apellidos = $_POST['apellidos'];
-            echo $obj->insert_user($nombre,$apellidos);
+            echo $obj->insert_user($nombre, $apellidos);
+
             break;
 
         default:
-
-
             break;
     }
 }

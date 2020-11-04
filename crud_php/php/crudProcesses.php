@@ -3,11 +3,11 @@ require_once 'conexion.php';
 header('Content-Type: application/json');
 
 
-class crudProcesses
-{
+class crudProcesses{
 
-    public function get_user()
-    {
+
+    public function get_user(){
+    
 
         $conectando = new conexion();
         $conn = $conectando->conectar();
@@ -23,8 +23,8 @@ class crudProcesses
         return  json_encode($usuario);
     }
 
-    public function insert_user($nombre, $apellidos)
-    {
+    public function insert_user($nombre, $apellidos){
+    
         $conectando = new conexion();
         $conn = $conectando->conectar();
 
@@ -34,15 +34,3 @@ class crudProcesses
         return  json_encode($result);
     }
 }
-
-//echo json_encode($data);
-
-
-
-
-
-
-
-// $nombre = $_POST['nombre'];
-
-// echo json_encode($nombre);

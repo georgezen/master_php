@@ -19,6 +19,11 @@ if ($operacion == "") {
             echo $obj->insert_user($nombre, $apellidos);
 
             break;
+        case 'get_id_for_edit':
+            $id = $_POST['id_user_edit'];
+            echo $obj->get_id($id);
+
+            break;
 
         default:
             break;

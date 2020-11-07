@@ -1,13 +1,11 @@
 <?php
 require_once 'conexion.php';
-header('Content-Type: application/json');
 
+class crudProcesses
+{
 
-class crudProcesses{
-
-
-    public function get_user(){
-    
+    public function get_user()
+    {
 
         $conectando = new conexion();
         $conn = $conectando->conectar();
@@ -23,8 +21,9 @@ class crudProcesses{
         return  json_encode($usuario);
     }
 
-    public function insert_user($nombre, $apellidos){
-    
+    public function insert_user($nombre, $apellidos)
+    {
+
         $conectando = new conexion();
         $conn = $conectando->conectar();
 
@@ -32,5 +31,19 @@ class crudProcesses{
         $result = mysqli_query($conn, $usuarios);
 
         return  json_encode($result);
+    }
+
+    public function get_id($id)
+    {
+        $conectando = new conexion();
+        $conn = $conectando->conectar();
+
+        $usuarios = "SELECT id_usuario,nombre,apellidos from crud_php.usuarios where id_usuario = '$id'";
+
+        $rs = mysqli_query($conn, $usuarios);
+
+        $data = mysqli_fetch_row($rs);
+
+        return  json_encode($data);
     }
 }

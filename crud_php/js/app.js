@@ -1,35 +1,51 @@
 "use strict";
 
-const get_datos = document.querySelector("#get_datos");
 const user_body = document.querySelector(".user_body");
 const open_form_add = document.querySelector("#open_form_add");
 const msj = document.querySelector(".msj");
-const close_form = document.querySelector("#close_form");
+const close_form = document.querySelector(".close_form");
+const close_form_edit = document.querySelector(".close_form_edit");
 
-var form_user = document.querySelector("#form_user");
+var operador = "";
+var form_user = document.querySelector("#form_user_add");
+const form_user_edit = document.querySelector("#form_user_edit");
 
-get_datos.addEventListener("click", () => get_users());
 open_form_add.addEventListener("click", () => open_form());
 close_form.addEventListener("click", () => close_form_add());
+close_form_edit.addEventListener("click", () => close_form_edi());
 
-var get_users = () => {
+get_users();
+
+function get_users() {
   fetch("php/controller.php")
     .then((data) => data.json())
     .then((data) => {
-      console.log(data[0]);
-      data.forEach((usuario) => {
-        var user = `
-        <tr class='id-${usuario.id_usuario}'>
-            <td class='idi'>${usuario.id_usuario}</td>
-            <td>${usuario.nombre}</td>
-            <td>${usuario.apellidos}</td>
-        </tr>
-        `;
+      for (var usuario of data) {
+        //console.log(usuario);
+        var buton =
+          "<button type='button' onclick='editar(" +
+          usuario.id_usuario +
+          ")' data='${usuario.id_usuario}'>Editar</button>";
+        var user =
+          "<tr >" +
+          "<td class='idi'>" +
+          usuario.id_usuario +
+          "</td>" +
+          "<td>" +
+          usuario.nombre +
+          "</td>" +
+          "<td>" +
+          usuario.apellidos +
+          "</td>" +
+          "<td>" +
+          buton +
+          "</td>" +
+          "</tr> ";
+
         user_body.innerHTML += user;
-        get_datos.disabled = true;
-      });
+      }
     });
-};
+}
 
 function open_form() {
   form_user.style.display = "block";
@@ -37,6 +53,11 @@ function open_form() {
 
 function close_form_add() {
   form_user.style.display = "none";
+  limpiar_form();
+}
+
+function close_form_edi() {
+  form_user_edit.style.display = "none";
   limpiar_form();
 }
 
@@ -48,7 +69,7 @@ form_user.addEventListener("submit", function (e) {
   var data_user = new FormData(form_user);
   console.log(data_user.get("nombre"));
   console.log(data_user.get("apellidos"));
-  var operador = "registro";
+  operador = "registro";
 
   data_user.append("operador", operador);
 
@@ -59,7 +80,7 @@ form_user.addEventListener("submit", function (e) {
     .then((data) => data.json())
     .then((user) => {
       if (user) {
-        user_body.innerHTML = '';
+        user_body.innerHTML = "";
         get_users();
         limpiar_form();
         form_user.style.display = "none";
@@ -79,9 +100,37 @@ form_user.addEventListener("submit", function (e) {
 });
 
 function limpiar_form() {
-  document.querySelector('#name').value = "";
-  document.querySelector('#last_name').value = "";
+  document.querySelector("#name").value = "";
+  document.querySelector("#last_name").value = "";
+  document.querySelector("#name_edit").value = "";
+  document.querySelector("#last_name_edit").value = "";
 }
 
+function editar(id_user) {
+  console.log(id_user);
+  operador = "get_id_for_edit";
+  var data_edit = new FormData();
+  data_edit.append("operador", operador);
+  data_edit.append("id_user_edit", id_user);
 
+  // console.log(data_edit);
 
+  fetch("php/controller.php", {
+    method: "POST",
+    body: data_edit,
+  })
+    .then((data) => data.json())
+    .then((edit) => {
+      console.log(edit);
+
+      print_user_edit(edit);
+    });
+}
+
+function print_user_edit(edit) {
+  form_user_edit.style.display = "block";
+
+  document.querySelector("#id_update_user").value = edit[0];
+  document.querySelector("#name_edit").value = edit[1];
+  document.querySelector("#last_name_edit").value = edit[2];
+}

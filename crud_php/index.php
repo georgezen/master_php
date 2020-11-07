@@ -19,7 +19,7 @@
             <section class="section">
                 <div class="btn-crud">
                     <div class="msj"></div>
-                    <input type="button" value="Consultar crud" id="get_datos" class="get_datos">
+
                     <input type="button" value="Añadir usuario" id="open_form_add" class="get_datos">
                 </div>
 
@@ -31,6 +31,7 @@
                                 <td>ID:</td>
                                 <td>Nombre:</td>
                                 <td>Apellidos:</td>
+                                <td>Acciones:</td>
                             </tr>
                         </thead>
                         <tbody class="user_body">
@@ -45,15 +46,27 @@
 
                 </div>
 
-                <form id="form_user">
+                <form id="form_user_add" class="form_user">
                     <label for="">Nombre</label>
                     <input type="text" name="nombre" id="name" class="name">
 
                     <label for="">Apellidos</label>
                     <input type="text" name="apellidos" id="last_name" class="last_name">
 
-                    <button type="submit" id="save_user" class="save_user">guardar</button>
-                    <button type="button" id="close_form" class="save_user">cerrar</button>
+                    <input type="submit" id="save_user" class="save_user" value="guardar" />
+                    <input type="button" class="save_user close_form" value="cerrar" />
+                </form>
+
+                <form id="form_user_edit" class="form_user">
+                    <input type="hidden" name="id_update_user" id="id_update_user" value="">
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre_edit" id="name_edit" class="name">
+
+                    <label for="">Apellidos</label>
+                    <input type="text" name="apellidos_edit" id="last_name_edit" class="last_name">
+
+                    <input type="submit" id="edit_user" class="save_user" value="Update" />
+                    <input type="button" class="save_user close_form_edit" value="cerrar" />
                 </form>
             </aside>
 

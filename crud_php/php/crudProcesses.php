@@ -46,4 +46,34 @@ class crudProcesses
 
         return  json_encode($data);
     }
+
+    public function
+    update_user($id_update, $nombre_update, $apellidos_update)
+    {
+        $conectando = new conexion();
+        $conn = $conectando->conectar();
+
+        $usuarios = "UPDATE  crud_php.usuarios set nombre = '$nombre_update',apellidos ='$apellidos_update' where id_usuario 
+				= '$id_update'";
+
+        $rs = mysqli_query($conn, $usuarios);
+
+
+
+        return  json_encode($rs);
+    }
+
+    public function delete_user($id_del)
+    {
+        $conectando = new conexion();
+        $conn = $conectando->conectar();
+
+        $usuarios = "DELETE from crud_php.usuarios where id_usuario='$id_del'";
+
+        $rs = mysqli_query($conn, $usuarios);
+
+        
+
+        return  json_encode($rs);
+    }
 }

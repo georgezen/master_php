@@ -25,6 +25,27 @@ if ($operacion == "") {
 
             break;
 
+        case 'update':
+
+            $id_update = $_POST['id_update_user'];
+            $nombre_update = $_POST['nombre_edit'];
+            $apellidos_update = $_POST['apellidos_edit'];
+
+            echo $obj->update_user($id_update, $nombre_update, $apellidos_update);
+            
+
+            break;
+
+        case 'delete_user':
+
+            $id_del = $_POST['id_user_delete'];
+            
+            
+            echo $obj->delete_user($id_del);
+
+
+            break;            
+
         default:
             break;
     }

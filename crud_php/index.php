@@ -28,10 +28,10 @@
                     <table border="1" class="table_user">
                         <thead>
                             <tr>
-                                <td>ID:</td>
-                                <td>Nombre:</td>
-                                <td>Apellidos:</td>
-                                <td>Acciones:</td>
+                                <th>Ih:</th>
+                                <th>Nombre:</th>
+                                <th>Apellidos:</th>
+                                <th>Acciones:</th>
                             </tr>
                         </thead>
                         <tbody class="user_body">
@@ -47,6 +47,7 @@
                 </div>
 
                 <form id="form_user_add" class="form_user">
+                    <h3>Añadir usuarios</h3>
                     <label for="">Nombre</label>
                     <input type="text" name="nombre" id="name" class="name">
 
@@ -58,6 +59,7 @@
                 </form>
 
                 <form id="form_user_edit" class="form_user">
+                    <h3>Editar usuarios</h3>
                     <input type="hidden" name="id_update_user" id="id_update_user" value="">
                     <label for="">Nombre</label>
                     <input type="text" name="nombre_edit" id="name_edit" class="name">

@@ -1,6 +1,6 @@
 <?php
-require_once 'controllers/usuario.php';
-require_once 'controllers/nota.php';
+require_once 'autoload.php';
+
 
 if (isset($_GET['controlador'])) {
     $nombre_controlador = $_GET['controlador'];

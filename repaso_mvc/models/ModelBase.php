@@ -12,10 +12,11 @@ class ModelBase
 
     
 
-    public function get_all()
+    public function get_all($tabla)
     {
-        var_dump($this->db);
-        return "Obteniendo todos los registros";
+        $query = $this->db->query('select * from '.$tabla);
+        return $query;
+        
     }
 
 }

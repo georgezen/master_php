@@ -9,7 +9,7 @@ class NotaController
     {
         $notin = new Nota();
 
-        $imprimir_nota = $notin->get_all();
+        $notas = $notin->get_all('nota');
 
         require_once 'views/notas/listar.php';
         

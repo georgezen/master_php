@@ -10,7 +10,7 @@ class UsuarioController
 
        $user = new Usuario();
 
-       $users = $user->get_all();
+       $users = $user->get_all('usuario');
 
         require_once 'views/mostrar_todos.php';
         

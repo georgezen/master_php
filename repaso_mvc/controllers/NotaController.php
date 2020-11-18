@@ -17,6 +17,7 @@ class NotaController
 
     public function crear()
     {
+       
         
     }
 }

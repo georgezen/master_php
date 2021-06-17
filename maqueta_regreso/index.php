@@ -59,12 +59,23 @@
         <aside class="aside">
             <form action="" id="form1">
                 <label for="">Nombre</label>
-                <input type="text" name="" id="" class="input">
+                <input type="text" name="name" id="name" class="input">
 
                 <label for="">Apellidos</label>
-                <input type="text" name="" class="input">
+                <input type="text" name="apellido" id="apellido" class="input">
 
-                <input type="button" value="Guardar">
+                <fieldset id="field">
+                    <legend class="car">carreras</legend>
+                    <label for="" class="lab">puercocultura</label>
+                    <input type="checkbox" name="carrera" id="puerco" value="puerco">
+                    <label for="" class="lab">informatica</label>
+                    <input type="checkbox" name="carrera" id="inform" value="informatica">
+
+                    <input type="radio" name="carrera" id="inform" checked>
+                </fieldset>
+
+
+                <input type="submit" value="Guardar" id="save">
             </form>
         </aside>
         <footer class="footer">

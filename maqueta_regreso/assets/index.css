@@ -96,7 +96,7 @@
 }
 .container .aside #form1 {
   width: 55%;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   text-align: center;
 }
 .container .aside #form1 label {
@@ -115,7 +115,20 @@
   border: 3px solid red;
   outline: none;
 }
-.container .aside #form1 input[type=button] {
+.container .aside #form1 #field {
+  width: 70%;
+  margin: 0 0 0 10%;
+  border: 1px solid #ccc;
+}
+.container .aside #form1 .car {
+  font-size: 22px;
+  color: #444;
+}
+.container .aside #form1 .lab {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+.container .aside #form1 input[type=submit] {
   width: 50%;
   border: none;
   font-size: 20px;
@@ -132,7 +145,17 @@
 }
 .container .footer {
   grid-column: 1/4;
-  border: 1px solid red;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+.container .footer .cont_info {
+  flex-basis: 30%;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #aaa;
 }
 
 /*# sourceMappingURL=index.css.map */

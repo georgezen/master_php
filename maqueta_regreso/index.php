@@ -27,6 +27,7 @@
             </nav>
         </header>
 
+        <div class="cont_info">
         <section class="section">
             <div class="card_container">
                 <div class="card">
@@ -71,15 +72,18 @@
                     <label for="" class="lab">informatica</label>
                     <input type="checkbox" name="carrera" id="inform" value="informatica">
 
-                    <input type="radio" name="carrera" id="inform" checked>
+                    
                 </fieldset>
 
 
                 <input type="submit" value="Guardar" id="save">
             </form>
         </aside>
+        </div>
+       
+       
         <footer class="footer">
-            <div class="cont_info">
+            <div class="cont_info_f">
                 <span>Derechos reservados dracosoftware-zen.com</span>
             </div>
         </footer>

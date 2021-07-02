@@ -84,7 +84,7 @@
        
         <footer class="footer">
             <div class="cont_info_f">
-                <span>Derechos reservados dracosoftware-zen.com hola pinche putita</span>
+                <span>Derechos reservados dracosoftware-zen.com hola pinche putita,te pones bien cachonda hdtptm</span>
             </div>
         </footer>
     </div>

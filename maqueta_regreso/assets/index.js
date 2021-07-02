@@ -28,7 +28,7 @@ save.addEventListener("submit", function (e) {
         alert("rellene estos campos");
         return false;
     } else {
-        fetch("assets/controlle.php", {
+        fetch("assets/controller.php", {
             method: "POST",
             body: data_user,
         })
